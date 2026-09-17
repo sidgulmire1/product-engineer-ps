@@ -1,8 +1,10 @@
 # Problem 4: Observable Agent Loop
+- **Name:** Siddharth Laxmikant Gulmire
+- **Email:** siddgulmire1@gmail.com
+- **GitHub:** https://github.com/sidgulmire1
+- **Selected problem:** Problem 4 — Observable Agent Loop
+- **Demo video:** https://drive.google.com/file/d/1iFg96urtAzDUlWkGPOzAuN7W5axKvmCc/view?usp=sharing
 
-**Candidate:** Siddharth Laxmikant Gulmire
-**Project:** AI Incident Investigator
-**Problem:** Observable Agent Loop
 
 ## 1. Overview
 
