@@ -1,29 +1,50 @@
-# Welcome to your Lovable project
+# Problem 4: Observable Agent Loop
 
-This project was built with [Lovable](https://lovable.dev).
+## AI Incident Investigator
 
-## Build with Lovable
+An observable AI-powered incident investigation agent that investigates service failures using structured tool calls, maintains an ordered execution trace, collects evidence, handles tool failures, and enforces configurable execution limits.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+The implementation uses a real agent loop with model-driven tool selection rather than a hard-coded sequence of tool calls.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Objective
 
-## Development
+Build an observable incident investigation agent that can:
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+1. Receive an investigation objective.
+2. Select an appropriate tool with structured input.
+3. Execute the selected tool.
+4. Return the tool result to the agent loop.
+5. Perform multi-step tool use.
+6. Produce a final response grounded in collected evidence.
+7. Record an ordered trace of model decisions, tool calls, tool results, errors, and the final response.
+8. Handle deliberate tool failures.
+9. Enforce a configurable execution limit.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+## Available Tools
 
-## Built with
+The application provides three tools backed by synthetic incident data:
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+- `search_logs` — Search service logs.
+- `get_metrics` — Retrieve service metrics.
+- `get_service_status` — Retrieve service health, deployment information, dependencies, and open alerts.
+
+## Agent Flow
+
+```text
+Investigation Objective
+        ↓
+Model Decision
+        ↓
+Structured Tool Call
+        ↓
+Tool Validation
+        ↓
+Tool Execution
+        ↓
+Tool Result / Error
+        ↓
+Trace + Evidence + State
+        ↓
+Model Decision
+        ↓
+Next Tool Call / Final Response
